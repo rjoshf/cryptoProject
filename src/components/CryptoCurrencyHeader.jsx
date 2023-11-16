@@ -7,10 +7,10 @@ const CryptoCurrencyHeader = (props) => {
     return (
         <>
             <div className={classes.cryptoHeader}>
-                <p>Name</p>
-                <p>Price</p>
-                <p>Market Cap</p>
-                <p>Circulating Supply</p>
+                <h2>Name</h2>
+                <h2>Price</h2>
+                <h2>Market Cap</h2>
+                <h2>Change (24h)</h2>
             </div>
         </>
     )

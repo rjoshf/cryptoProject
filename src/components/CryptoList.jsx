@@ -47,7 +47,7 @@ const CryptoList = () => {
 
     return (
         <ul className={classes.cryptoList}>
-            {topCryptos.map((element) => <CryptoElement name={element.name} price={element.current_price} marketcap={element.market_cap} circulatingsupply={element.circulating_supply} key={element.id}></CryptoElement>)}
+            {topCryptos.map((element) => <CryptoElement name={element.name} image={element.image} symbol={element.symbol} price={`${element.current_price.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}`} marketcap={element.market_cap.toLocaleString('en-US', { style: 'currency', currency: 'USD' })} pricechange={element.price_change_percentage_24h.toFixed(1)} key={element.id}></CryptoElement>)}
         </ul>
     )
 

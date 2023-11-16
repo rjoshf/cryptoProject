@@ -1,26 +1,61 @@
 .cryptoElement {
     width: 90%;
-    margin: auto;
     display: flex;
+    flex-direction: row;
     margin: 3rem;
+    margin-bottom: 0rem;
     margin-top: 0;
-    margin-bottom: 0;
-    border-bottom: 3px black solid;
+    border-top: 3px black solid;
 }
 
-.cryptoElement>p {
-    width: 22.5%;
+.cryptoElement>div {
+    width: 100%;
     font-weight: 700;
     color: #f39c12;
-    padding: 5rem;
     padding-bottom: 1rem;
     padding-top: 1rem;
-    border-left: 3px black solid;
-    border-top: 3px black solid;
-    box-sizing: border-box;
-    width: 100%;
+    border-right: 3px black solid;
 }
 
-.cryptoElement>p:last-child {
-    border-right: 3px black solid;
+.cryptoElement>div:last-child {
+    border-right: none;
+}
+
+.name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.price {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.marketcap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.pricechange {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.name img {
+    display: flex;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: inline;
+}
+
+.name>p {
+    margin-left: 10px;
 }
