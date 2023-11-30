@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import CryptoElement from './CryptoElement.jsx';
+import Error from './UI/Error.jsx'
 
 import classes from './CryptoList.module.css'
 
@@ -15,29 +16,34 @@ const CryptoList = () => {
 
     const [topCryptos, setTopCryptos] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState();
 
-    const cryptoFetcher = async () => {
-        try {
+    useEffect(() => {
+        const cryptoFetcher = async () => {
             setIsLoading(true)
-            const response = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=gbp&order=market_cap_desc&per_page=10&page=1&sparkline=false&locale=en`, options);
-            if (!response.ok) {
-                throw new Error('Perhaps the API is down! Please try again later.');
+            try {
+                const response = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=gbp&order=market_cap_desc&per_page=10&page=1&sparkline=false&locale=en`, options);
+                if (!response.ok) {
+                    throw new Error('Failed to fetch data.');
+                }
+                const data = await response.json();
+                setTopCryptos(data);
+                console.log(data);
             }
-            const data = await response.json();
-            setTopCryptos(data);
-            console.log(data);
+
+            catch (error) {
+                setError({ message: error.message || 'Could not fetch cryptocurrency data.' });
+            }
+
             setIsLoading(false);
         }
 
-        catch (error) {
-            console.log(error)
-        }
-    }
-
-    useEffect(() => {
         cryptoFetcher();
     }, [])
 
+    if (error) {
+        return <Error title="An error occured." message={error.message}></Error>
+    }
 
     return (
         <>

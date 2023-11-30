@@ -1,0 +1,8 @@
+.error {
+    border: 2px salmon solid;
+    background-color: salmon;
+    color: black;
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 1rem;
+}
